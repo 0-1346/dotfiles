@@ -11,7 +11,7 @@ $map normal $mod d spawn "pkill -x wmenu || j4-dmenu-desktop --dmenu 'wmenu -i' 
 $map normal $mod e spawn firefox
 $map normal $mod r spawn thunar
 $map normal $mod v spawn pavucontrol-qt
-$map normal Mod4 Tab spawn "fcitx5-remote -t"
+$map normal Control q spawn "fcitx5-remote -t"
 $map normal ${mod}+Control Up spawn "wlr-randr --output DP-4 --preferred"
 $map normal ${mod}+Control Down spawn "wlr-randr --output DP-4 --mode 1280x1024@239.770996Hz"
 
