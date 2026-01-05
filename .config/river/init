@@ -1,0 +1,19 @@
+#!/bin/sh
+# river/init
+
+# source
+. ${HOME}/.config/river/env
+. ${HOME}/.config/river/rules
+. ${HOME}/.config/river/autostart
+. ${HOME}/.config/river/bindings
+
+# config
+riverctl default-attach-mode top
+riverctl allow-tearing enabled
+riverctl border-width 0
+riverctl focus-follows-cursor disabled
+riverctl hide-cursor when-typing enabled
+
+# rivertile
+riverctl default-layout rivertile
+rivertile -view-padding 0 -outer-padding 0 -main-location right -main-ratio 0.5
