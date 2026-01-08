@@ -3,11 +3,11 @@
 
 spawn="riverctl spawn"
 
-killall -q fcitx5 swaybg &
+killall -q fcitx5 swaybg dam &
 $spawn "wlr-randr --output DP-4 --preferred" &
 $spawn "${HOME}/.local/bin/dam-run" &
 $spawn "swaybg -i $HOME/media/wallpaper/green.png -m fill" &
 pgrep -f "wl-clip-persist --clipboard regular" || $spawn "wl-clip-persist --clipboard regular" &
 pgrep fnott || $spawn "fnott" &
 $spawn "fcitx5 -d --verbose '*=0'" &
-$spawn "wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 0.3"
+$spawn "wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 0.3" &
