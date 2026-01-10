@@ -2,17 +2,17 @@
 # river/bindings
 
 map="riverctl map"
-pointer="riverctl map-pointer"
 mod="Mod1"
+menu="pkill -x wmenu || j4-dmenu-desktop --dmenu 'wmenu -i' --term foot"
 
 # item
 $map normal $mod Return spawn foot
-$map normal $mod d spawn "pkill -x wmenu || j4-dmenu-desktop --dmenu 'wmenu -i' --term foot"
+$map normal $mod d spawn "$menu" 
 $map normal $mod e spawn librewolf
 $map normal $mod r spawn thunar
 $map normal $mod v spawn pavucontrol-qt
 $map normal Mod4 q spawn "fcitx5-remote -t"
-$map normal ${mod}+Control Up spawn "wlr-randr --output DP-4 --preferred"
+$map normal ${mod}+Control UP spawn "wlr-randr --output DP-4 --preferred"
 $map normal ${mod}+Control Down spawn "wlr-randr --output DP-4 --mode 1280x1024@239.770996Hz"
 
 # actions
@@ -23,13 +23,13 @@ $map normal $mod f toggle-fullscreen
 $map normal ${mod}+Shift r spawn ${HOME}/.config/river/init
 $map normal ${mod}+Shift End exit
 
-# mouse
-$pointer normal $mod BTN_LEFT move-view
-$pointer normal $mod BTN_RIGHT resize-view
+# layout
+$map normal $mod H send-layout-step -0.05
+$map normal $mod L send-layout-step 0.05
 
-# capture
-$map normal None F12 spawn ${HOME}/.config/river/scripts/screenshot.sh
-$map normal None Print spawn ${HOME}/.config/river/scripts/wf-record.sh
+# move & resize
+riverctl map-pointer normal $mod BTN_LEFT move-view
+riverctl map-pointer normal $mod BTN_RIGHT resize-view
 
 # focus
 $map normal $mod Left focus-view left
@@ -54,6 +54,10 @@ do
     $map normal Control+Shift $i toggle-view-tags $tags
 done
 
+# capture
+$map normal None F12 spawn ${HOME}/.config/river/scripts/screenshot.sh
+$map normal None Print spawn ${HOME}/.config/river/scripts/wf-record.sh
+
 # volume
-$map -repeat normal Mod4 Up spawn "wpctl set-volume @DEFAULT_AUDIO_SINK@ 2%+"
-$map -repeat normal Mod4 Down spawn "wpctl set-volume @DEFAULT_AUDIO_SINK@ 2%-"
+$map -repeat normal None F10 spawn "wpctl set-volume @DEFAULT_AUDIO_SINK@ 3%+"
+$map -repeat normal None F9 spawn "wpctl set-volume @DEFAULT_AUDIO_SINK@ 3%-"
